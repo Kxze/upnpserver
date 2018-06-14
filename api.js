@@ -462,7 +462,7 @@ class API extends events.EventEmitter {
 
 			console.log('Ready http://' + hostname + ':' + address.port);
 
-			callback();
+			callback(undefined, upnpServer);
 		});
 	}
 
@@ -568,6 +568,14 @@ class API extends events.EventEmitter {
 		}
 
 		callback(null, stopped);
+	}
+
+	reloadRepositories(callback) {
+		if (!this.upnpServer) {
+			logger.error("Server has not started.");
+		}
+
+		this.upnpServer.addRepositories(this.repositories);
 	}
 }
 
