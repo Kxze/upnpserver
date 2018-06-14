@@ -462,7 +462,7 @@ class API extends events.EventEmitter {
 
 			console.log('Ready http://' + hostname + ':' + address.port);
 
-			callback(undefined, upnpServer);
+			callback();
 		});
 	}
 
