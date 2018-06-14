@@ -570,7 +570,10 @@ class API extends events.EventEmitter {
 		callback(null, stopped);
 	}
 
-	reloadRepositories(callback) {
+	/**
+	 * Reloads all the current repositories.
+	 */
+	reloadRepositories() {
 		if (!this.upnpServer) {
 			logger.error("Server has not started.");
 		}
